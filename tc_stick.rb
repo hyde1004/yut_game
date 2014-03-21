@@ -15,4 +15,17 @@ class TestStick < Test::Unit::TestCase
 		assert_instance_of Stick, stick
 	end	
 	
+	def test_state # stick은 state가 있다. state는 앞이거나 뒤이다.
+		stick = Stick.new
+		assert(:front == stick.state)
+
+		stick = Stick.new(:front)
+		assert(:front == stick.state)
+
+		stick = Stick.new(:rear)
+		assert(:rear == stick.state)
+
+		stick = Stick.new(:others)
+		assert(:front == stick.state)
+	end
 end
