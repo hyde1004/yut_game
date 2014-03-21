@@ -28,4 +28,23 @@ class TestStick < Test::Unit::TestCase
 		stick = Stick.new(:others)
 		assert(:front == stick.state)
 	end
+
+	def test_shuffle # 윷가락을 섞는다. 앞이나 뒤나 나온다.
+		stick = Stick.new
+		stick.shuffle
+
+		assert([:front, :rear].include?(stick.state))
+
+		sticks = Array.new
+		1.upto(12) do |i|
+			stick = Stick.new
+			stick.shuffle
+			sticks.push(stick)
+		end
+
+		sticks.each do |stick|
+			puts "#{stick.state}"
+		end
+		
+	end
 end

@@ -8,4 +8,12 @@ class Stick
 			@state = :front
 		end
 	end
+
+	def shuffle
+		if rand(0..1) % 2 == 0
+			@state = :front
+		else
+			@state = :rear
+		end
+	end
 end
